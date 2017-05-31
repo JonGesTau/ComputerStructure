@@ -13,17 +13,12 @@ linebreak:	.asciiz "\n"
 
 	.globl main
 main: 
-	# Prompt the user to enter number of disks
-	li $v0, 4
-	la $a0, prompt
-	syscall
-
 	# Get the number of disks
 	li $v0, 5
 	syscall
 
 	# Store the number of disks in $a0
-	add $a0, $v0, $0
+	add $a0, $v0, $zero
 
 	# Init stacks
 	# Source stack (A)
@@ -38,7 +33,7 @@ main:
 hanoi:
 	# Base case - Number of disks is 1
 	addi $t0, $a0, 0
-	addi $t1, $0, 1
+	addi $t1, $zero, 1
 
 	bne $a0, $t1, handleMultiplePegs
 
